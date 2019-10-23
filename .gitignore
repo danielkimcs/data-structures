@@ -1,7 +1,6 @@
+*
+!*/
+!*.*
 **/.DS_Store
-**/a.out
-Notes/LinkedList/linkedlist
-Programs/Flojo/flojo
-Programs/Mod/mod
-Programs/Mod/mod.cpp:tests
-Programs/Poly/Poly
+**/*.out
+**/*.cpp:tests
