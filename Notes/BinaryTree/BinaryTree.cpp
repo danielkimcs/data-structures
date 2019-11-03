@@ -51,10 +51,10 @@ BN<T>* find(BN<T>* root, int ord) {
 // Construct the binary tree that has unique keys,
 // whose in-order and pre-order are specified by in and pre
 
-template<typename T>
-BN<T>* reconstruct(VI& in, VI& pre) {
-	It 
-}
+// template<typename T>
+// BN<T>* reconstruct(VI& in, VI& pre) {
+// 	It 
+// }
 
 
 
