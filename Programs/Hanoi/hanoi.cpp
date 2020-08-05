@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <utility>
 #include <stack> // only used for test_hanoi
 
-#define MAX_TOWERS 10
-#define MAX_DISKS 10000
+int MAX_TOWERS = 10;
+int MAX_DISKS = 10000;
 
 using std::cout;
 using std::cin;
@@ -94,13 +95,23 @@ bool test_hanoi(vector<vector<int>> ans,int n_dsks) {
 }
 
 int main() {
-    const int TOWERS = 10;
-    const int DISKS = 10000;
     hanoi_init();
     vector<VI> moves(0);
     vector<int> aux{0,1,2,3,4,5,6,7,8,9};
-    hanoi(moves,TOWERS,DISKS,aux);
-    // for (VI x : moves) cout << x[0] << " ==> " << x[1] << "\n";
-    cout << (test_hanoi(moves,DISKS) && (moves.size() == n_hanoi[TOWERS][DISKS]) ? "It works!" : "It doesn't work :(") << "\n";
-    return 0;
+    for (int twrs = 3;twrs <= 10;twrs++) {
+        for (int dsks = 1;dsks < 10000;dsks++) {
+            if (n_hanoi[twrs][dsks] == -1 || n_hanoi[twrs][dsks] > 10000) {
+                break;
+            }
+            moves.clear();
+            hanoi(moves,twrs,dsks,aux);
+            if (moves.size() != n_hanoi[twrs][dsks]) {
+			cout << "Failed on " << twrs << "towers and " << dsks << " disks because the given moveset is not the same length as n_hanoi" << std::endl;
+} else if (!test_hanoi(moves,dsks)) {
+                cout << "Failed on " << twrs << "towers and " << dsks << " disks because the given moveset is not a valid solution" << std::endl;
+            }
+        }
+    }
+    cout << "everything is awesome" << std::endl; //note that this gets printed regardless of whether u passed or not
+
 }

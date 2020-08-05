@@ -4,3 +4,7 @@
 **/.DS_Store
 **/*.out
 **/*.cpp:tests
+.vscode/
+Notes/images/
+Programs/*/dev/
+Programs/*/*.pdf
